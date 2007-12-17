@@ -27,7 +27,6 @@ BuildRequires:	perl(Path::Class)
 Provides:	perl-%realname
 Obsoletes:	perl-%realname
 BuildArch:	noarch
-Buildroot:	%_tmppath/%name-%{version}-%{release}-buildroot
 
 %description
 Catalyst::Plugin::Session::Store::FastMmap is a fast session storage plugin for
