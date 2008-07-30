@@ -4,7 +4,7 @@
 %define	modprefix Catalyst
 
 %define version 0.02
-%define release %mkrel 5
+%define release %mkrel 7
 
 Summary:	FastMmap session storage backend
 Name:		%name
