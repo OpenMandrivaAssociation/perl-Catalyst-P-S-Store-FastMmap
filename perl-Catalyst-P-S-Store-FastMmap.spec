@@ -24,6 +24,7 @@ BuildRequires:	perl(File::Spec)
 BuildRequires:	perl(File::Temp)
 BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(Path::Class)
+BuildRequires:  perl-namespace-clean
 Provides:	perl-%realname
 Obsoletes:	perl-%realname
 BuildArch:	noarch
