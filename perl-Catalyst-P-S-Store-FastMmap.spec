@@ -3,8 +3,8 @@
 %define name perl-%abbrevname
 %define	modprefix Catalyst
 
-%define version 0.02
-%define release %mkrel 7
+%define version 0.10
+%define release %mkrel 1
 
 Summary:	FastMmap session storage backend
 Name:		%name
@@ -13,7 +13,7 @@ Release:	%release
 License:	Artistic/GPL
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%realname/
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%realname-%version.tar.bz2
+Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%realname-%version.tar.gz
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
@@ -38,15 +38,15 @@ cache. It is based on Cache::FastMmap.
 %setup -q -n %realname-%version
 
 %build
-%__perl Build.PL installdirs=vendor
-./Build
+%__perl Makefile.PL installdirs=vendor
+%make
 
 %check
-./Build test
+make test
 
 %install
 rm -rf %{buildroot}
-./Build install destdir=%{buildroot}
+%makeinstall_std
 
 %files
 %defattr(-,root,root)
