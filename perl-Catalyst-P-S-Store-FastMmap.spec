@@ -18,6 +18,7 @@ BuildRequires:	perl-devel
 BuildRequires:	perl(Cache::FastMmap)
 BuildRequires:	perl(Catalyst::Plugin::Session) >= 0.01
 BuildRequires:	perl(Catalyst::Utils)
+BuildRequires:	perl(Class::Data::Inheritable)
 BuildRequires:	perl(File::Spec)
 BuildRequires:	perl(File::Temp)
 BuildRequires:	perl(Module::Build)
