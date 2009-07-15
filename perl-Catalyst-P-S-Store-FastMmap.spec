@@ -1,19 +1,17 @@
-%define realname Catalyst-Plugin-Session-Store-FastMmap
-%define abbrevname Catalyst-P-S-Store-FastMmap
-%define name perl-%abbrevname
-%define	modprefix Catalyst
+%define upstream_name    Catalyst-Plugin-Session-Store-FastMmap
+%define abbrev_name      Catalyst-P-S-Store-FastMmap
+%define upstream_version 0.11
 
-%define version 0.10
-%define release %mkrel 1
+Name:		perl-%{abbrev_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
 
 Summary:	FastMmap session storage backend
-Name:		%name
-Version:	%version
-Release:	%release
 License:	Artistic/GPL
 Group:		Development/Perl
-URL:		http://search.cpan.org/dist/%realname/
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/%{modprefix}/%realname-%version.tar.gz
+URL:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:    ftp://ftp.perl.org/pub/CPAN/modules/by-module/Catalyst/%{upstream_name}-%{upstream_version}.tar.gz
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
@@ -25,12 +23,13 @@ BuildRequires:	perl(File::Temp)
 BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(Path::Class)
 BuildRequires:  perl(MooseX::Emulate::Class::Accessor::Fast)
-Requires:       perl(MooseX::Emulate::Class::Accessor::Fast)
-BuildRequires:  perl-namespace-clean
-Provides:	perl-%realname
-Obsoletes:	perl-%realname
+BuildRequires:  perl(namespace::clean)
 BuildArch:	noarch
-Buildroot:	%_tmppath/%name-%{version}-%{release}-buildroot
+Buildroot:	%_tmppath/%name-%{version}-%{release}
+Requires:   perl(MooseX::Emulate::Class::Accessor::Fast)
+Provides:	perl-%{upstream_name}
+Obsoletes:	perl-%{upstream_name}
+
 
 %description
 Catalyst::Plugin::Session::Store::FastMmap is a fast session storage plugin for
@@ -38,7 +37,7 @@ Catalyst that uses an mmap'ed file to act as a shared memory interprocess
 cache. It is based on Cache::FastMmap.
 
 %prep
-%setup -q -n %realname-%version
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %__perl Makefile.PL installdirs=vendor
@@ -54,7 +53,7 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc README Changes
-%perl_vendorlib/%{modprefix}
+%perl_vendorlib/Catalyst
 %_mandir/*/*
 
 %clean
