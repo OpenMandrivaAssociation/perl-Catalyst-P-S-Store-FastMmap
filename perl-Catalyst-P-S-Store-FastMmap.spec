@@ -1,6 +1,6 @@
 %define upstream_name    Catalyst-Plugin-Session-Store-FastMmap
 %define abbrev_name      Catalyst-P-S-Store-FastMmap
-%define upstream_version 0.11
+%define upstream_version 0.13
 
 Name:		perl-%{abbrev_name}
 Version:	%perl_convert_version %{upstream_version}
