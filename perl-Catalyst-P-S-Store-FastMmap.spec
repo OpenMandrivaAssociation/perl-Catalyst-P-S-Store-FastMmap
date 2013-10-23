@@ -3,14 +3,14 @@
 %define upstream_version 0.16
 
 Name:		perl-%{abbrev_name}
-Version:	%perl_convert_version 0.16
+Version:	%perl_convert_version %{upstream_version}
 Release:	1
 
 Summary:	FastMmap session storage backend
 License:	Artistic/GPL
 Group:		Development/Perl
 URL:		http://search.cpan.org/dist/%{upstream_name}/
-Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/Catalyst/Catalyst-Plugin-Session-Store-FastMmap-0.16.tar.gz
+Source0:	ftp://ftp.perl.org:21/pub/CPAN/modules/by-module/Catalyst/Catalyst-Plugin-Session-Store-FastMmap-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
 BuildRequires:	perl(Cache::FastMmap)
@@ -105,5 +105,6 @@ make test
 
 * Thu Jan 12 2006 Rafael Garcia-Suarez <rgarciasuarez@mandriva.com> 0.02-1mdk
 - Initial MDV RPM
+
 
 
