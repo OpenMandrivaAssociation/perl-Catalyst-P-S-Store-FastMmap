@@ -4,7 +4,7 @@
 
 Name:		perl-%{abbrev_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	1
+Release:	2
 
 Summary:	FastMmap session storage backend
 License:	Artistic/GPL
